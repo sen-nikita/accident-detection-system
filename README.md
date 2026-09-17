@@ -1,6 +1,8 @@
 # AI Road Accident Detection & Emergency Alert System
 
 > **Project Status:** Working Prototype | Actively Under Development
+> 🚀 **Live Demo:**  
+https://accident-detection-system-i0b9.onrender.com/
 
 An AI-powered road safety system that uses Computer Vision and YOLO-based object detection to monitor road traffic, detect potential vehicle collisions, capture accident evidence, and generate emergency alerts through a web-based monitoring dashboard.
 
