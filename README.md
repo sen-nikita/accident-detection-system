@@ -164,6 +164,7 @@ Incident Recording
 Dashboard Update
         ↓
 Emergency Alert
+---
 
 ## 🔮 Future Enhancements
 
@@ -181,3 +182,4 @@ Emergency Alert
 - Mobile application
 - Cloud deployment
 - Edge AI support
+
