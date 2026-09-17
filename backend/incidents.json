@@ -1,0 +1,96 @@
+[
+    {
+        "id": 1,
+        "vehicle_1": 27,
+        "vehicle_2": 28,
+        "distance": 267.92,
+        "iou": 0.112,
+        "time": "2026-09-17 12:06:11",
+        "location": "Main Road CCTV Camera",
+        "evidence": "backend\\ai\\evidence\\accident_20260917_120611_209326.jpg",
+        "status": "ACCIDENT CONFIRMED"
+    },
+    {
+        "id": 2,
+        "vehicle_1": 1,
+        "vehicle_2": 23,
+        "distance": 216.0,
+        "iou": 0.098,
+        "time": "2026-09-17 12:06:14",
+        "location": "Main Road CCTV Camera",
+        "evidence": "backend\\ai\\evidence\\accident_20260917_120614_827423.jpg",
+        "status": "ACCIDENT CONFIRMED"
+    },
+    {
+        "id": 3,
+        "vehicle_1": 38,
+        "vehicle_2": 39,
+        "distance": 129.84,
+        "iou": 0.128,
+        "time": "2026-09-17 12:06:39",
+        "location": "Main Road CCTV Camera",
+        "evidence": "backend\\ai\\evidence\\accident_20260917_120639_377797.jpg",
+        "status": "ACCIDENT CONFIRMED"
+    },
+    {
+        "id": 4,
+        "vehicle_1": 27,
+        "vehicle_2": 30,
+        "distance": 42.49,
+        "iou": 0.219,
+        "time": "2026-09-17 12:06:44",
+        "location": "Main Road CCTV Camera",
+        "evidence": "backend\\ai\\evidence\\accident_20260917_120644_297076.jpg",
+        "status": "ACCIDENT CONFIRMED"
+    },
+    {
+        "id": 5,
+        "vehicle_1": 1,
+        "vehicle_2": 58,
+        "distance": 205.8,
+        "iou": 0.128,
+        "time": "2026-09-17 12:07:30",
+        "location": "Main Road CCTV Camera",
+        "evidence": "backend\\ai\\evidence\\accident_20260917_120730_683567.jpg",
+        "status": "ACCIDENT CONFIRMED"
+    },
+    {
+        "id": 6,
+        "vehicle_1": 27,
+        "vehicle_2": 28,
+        "plate_1": "NOT DETECTED",
+        "plate_2": "NOT DETECTED",
+        "distance": 269.03,
+        "iou": 0.111,
+        "time": "2026-09-17 14:32:50",
+        "location": "Main Road CCTV Camera",
+        "evidence": "backend\\ai\\evidence\\accident_20260917_143250_068889.jpg",
+        "status": "ACCIDENT CONFIRMED"
+    },
+    {
+        "id": 7,
+        "vehicle_1": 1,
+        "vehicle_2": 23,
+        "plate_1": "NOT DETECTED",
+        "plate_2": "NOT DETECTED",
+        "distance": 215.62,
+        "iou": 0.098,
+        "time": "2026-09-17 14:35:20",
+        "location": "Main Road CCTV Camera",
+        "evidence": "backend\\ai\\evidence\\accident_20260917_143520_700509.jpg",
+        "status": "ACCIDENT CONFIRMED"
+    },
+    {
+        "id": 8,
+        "vehicle_1": 38,
+        "vehicle_2": 39,
+        "plate_1": "NOT DETECTED",
+        "plate_2": "NOT DETECTED",
+        "distance": 128.65,
+        "iou": 0.129,
+        "time": "2026-09-17 22:35:27",
+        "location": "Main Road CCTV Camera",
+        "evidence": "backend\\ai\\evidence\\accident_20260917_223527_591807.jpg",
+        "status": "ACCIDENT CONFIRMED"
+    }
+]

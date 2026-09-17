@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AccidentAI | Smart Road Safety</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Leaflet Map -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🚘
+            </div>
+
+            <div>
+                <h2>AccidentAI</h2>
+                <span>Road Safety System</span>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="#dashboard"
+               class="nav-item active">
+
+                <span>📊</span>
+                Dashboard
+
+            </a>
+
+            <a href="#camera"
+               class="nav-item">
+
+                <span>📹</span>
+                Live Camera
+
+            </a>
+
+            <a href="#incidents"
+               class="nav-item">
+
+                <span>🚨</span>
+                Incidents
+
+            </a>
+
+            <a href="#map-section"
+               class="nav-item">
+
+                <span>🗺️</span>
+                Accident Map
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-small">
+
+                <span class="online-dot"></span>
+
+                <div>
+
+                    <strong>System Online</strong>
+
+                    <small>AI monitoring ready</small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content"
+          id="dashboard">
+
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <div class="page-label">
+                    SMART SURVEILLANCE
+                </div>
+
+                <h1>
+                    Accident Detection Dashboard
+                </h1>
+
+                <p class="subtitle">
+                    AI-powered road accident monitoring and emergency alert system
+                </p>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <div class="status-badge">
+
+                    <span class="online-dot"></span>
+
+                    System Active
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    📹
+                </div>
+
+                <div>
+
+                    <span>Active Cameras</span>
+
+                    <h2 id="camera-count">
+                        12
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon red">
+                    🚨
+                </div>
+
+                <div>
+
+                    <span>Today's Accidents</span>
+
+                    <h2 id="accident-count">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    📡
+                </div>
+
+                <div>
+
+                    <span>Alerts Sent</span>
+
+                    <h2 id="alert-count">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span>System Status</span>
+
+                    <h2 class="status-text"
+                        id="system-status">
+
+                        Ready
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             AI CONTROL
+        ================================================== -->
+
+        <section class="control-panel">
+
+            <div>
+
+                <h3>
+                    🤖 AI Accident Detection
+                </h3>
+
+                <p id="detection-message">
+                    AI detection stopped.
+                </p>
+
+            </div>
+
+
+            <div class="ai-buttons">
+
+                <button id="start-ai-btn"
+                        class="start-ai-btn">
+
+                    ▶ Start AI Detection
+
+                </button>
+
+
+                <button id="stop-ai-btn"
+                        class="stop-ai-btn"
+                        disabled>
+
+                    ■ Stop
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CAMERA + INCIDENTS
+        ================================================== -->
+
+        <section class="main-grid"
+                 id="camera">
+
+
+            <!-- CAMERA -->
+
+            <div class="panel camera-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            📹 AI CCTV Camera Feed
+                        </h3>
+
+                        <p>
+                            YOLO-powered accident detection
+                        </p>
+
+                    </div>
+
+
+                    <span class="live-badge"
+                          id="camera-status">
+
+                        ● READY
+
+                    </span>
+
+                </div>
+
+
+                <!-- IMPORTANT:
+                     VIDEO SOURCE IS ALWAYS /video
+                     DO NOT CHANGE IT FROM JAVASCRIPT
+                -->
+
+                <div class="camera-screen">
+
+                    <video id="camera-video"
+                           controls
+                           autoplay
+                           muted
+                           playsinline>
+
+                        <source src="/video"
+                                type="video/mp4">
+
+                        Your browser does not support video playback.
+
+                    </video>
+
+
+                    <div class="camera-placeholder"
+                         id="camera-placeholder">
+
+                        <div>
+                            📹
+                        </div>
+
+                        <h3>
+                            CCTV Camera
+                        </h3>
+
+                        <p>
+                            Camera feed is loading...
+                        </p>
+
+                    </div>
+
+
+                    <div class="camera-overlay">
+
+                        <span class="camera-live">
+                            ● LIVE
+                        </span>
+
+                        <span class="camera-name">
+                            CCTV-001
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="camera-footer">
+
+                    <span>
+                        📍 Main Road CCTV Camera
+                    </span>
+
+                    <span id="video-status">
+                        Video Feed
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- INCIDENTS -->
+
+            <div class="panel incidents-panel"
+                 id="incidents">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            🚨 Recent Incidents
+                        </h3>
+
+                        <p>
+                            AI detected accidents
+                        </p>
+
+                    </div>
+
+
+                    <span class="incident-count"
+                          id="incident-count">
+
+                        0
+
+                    </span>
+
+                </div>
+
+
+                <div id="incident-list"
+                     class="incident-list">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            ✓
+                        </div>
+
+                        <h4>
+                            No accidents detected
+                        </h4>
+
+                        <p>
+                            AI monitoring is ready.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MAP
+        ================================================== -->
+
+        <section class="panel map-panel"
+                 id="map-section">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h3>
+                        🗺️ Accident Location Map
+                    </h3>
+
+                    <p>
+                        Detected incident locations
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="accident-map"
+                 class="accident-map">
+
+            </div>
+
+
+            <div class="map-note">
+
+                <strong>Note:</strong>
+                Map markers are displayed only when actual
+                latitude and longitude are available.
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            AccidentAI © 2026 |
+            AI-powered Road Safety Monitoring System
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     EMERGENCY ALERT
+========================================================= -->
+
+<div id="emergency-alert"
+     class="emergency-alert"
+     style="display:none;">
+
+    <div class="emergency-box">
+
+        <div class="emergency-icon">
+            🚨
+        </div>
+
+
+        <div class="emergency-content">
+
+            <h2>
+                🚨 EMERGENCY ALERT
+            </h2>
+
+            <p>
+                Accident detected by AI surveillance system.
+            </p>
+
+        </div>
+
+
+        <button id="dismiss-alert"
+                class="dismiss-alert">
+
+            Dismiss Alert
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     SOUND
+========================================================= -->
+
+<audio id="emergency-sound"
+       preload="auto">
+
+    <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"
+            type="audio/ogg">
+
+</audio>
+
+
+<!-- LEAFLET -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+<!-- OUR JAVASCRIPT -->
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+</body>
+
+</html>
