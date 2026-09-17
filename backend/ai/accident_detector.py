@@ -1392,27 +1392,32 @@ while True:
 
 
     # ========================================================
-    # SHOW
+    # DISPLAY FRAME
     # ========================================================
 
-    cv2.imshow(
-        "AI Accident + Number Plate Detection",
-        frame
+    # Local Windows/Linux desktop: show the OpenCV window.
+    # Cloud servers such as Render usually have no display.
+    SHOW_WINDOW = (
+        os.name == "nt"
+        or bool(os.environ.get("DISPLAY"))
     )
 
+    if SHOW_WINDOW:
 
-    key = cv2.waitKey(
-        1
-    ) & 0xFF
-
-
-    if key == ord("q"):
-
-        print(
-            "\n🛑 Detection stopped."
+        cv2.imshow(
+            "AI Accident + Number Plate Detection",
+            frame
         )
 
-        break
+        key = cv2.waitKey(1) & 0xFF
+
+        if key == ord("q"):
+
+            print(
+                "\n🛑 Detection stopped."
+            )
+
+            break
 
 
 # ============================================================
@@ -1421,7 +1426,8 @@ while True:
 
 cap.release()
 
-cv2.destroyAllWindows()
+if SHOW_WINDOW:
+    cv2.destroyAllWindows()
 
 
 print("\n" + "=" * 70)
