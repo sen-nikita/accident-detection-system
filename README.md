@@ -165,21 +165,19 @@ Dashboard Update
         ↓
 Emergency Alert
 ---
-
 ## 🔮 Future Enhancements
-
-- Real-time CCTV/RTSP stream integration
-- Improved accident detection accuracy
-- Dedicated accident detection model
-- Accident severity classification
-- Advanced number plate recognition (ANPR)
-- GPS-based accident location tracking
-- Real-time SMS/mobile emergency notifications
-- Police and ambulance API integration
-- Multi-camera monitoring
-- Speed and traffic violation detection
-- Accident analytics and heatmaps
-- Mobile application
-- Cloud deployment
-- Edge AI support
+Real-time CCTV/RTSP stream integration
+Improved accident detection accuracy
+Dedicated accident detection model
+Accident severity classification
+Advanced number plate recognition (ANPR)
+GPS-based accident location tracking
+Real-time SMS/mobile emergency notifications
+Police and ambulance API integration
+Multi-camera monitoring
+Speed and traffic violation detection
+Accident analytics and heatmaps
+Mobile application
+Cloud deployment
+Edge AI support
 
